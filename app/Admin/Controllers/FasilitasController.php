@@ -69,7 +69,7 @@ class FasilitasController extends AdminController
         // $form->textarea('image', __('Image'));
 
         // change upload path
-        $form->image('image')->move('public/images/fasilitas')->uniqueName();
+        $form->image('image')->uniqueName();
 
         // $form->image('image');
 

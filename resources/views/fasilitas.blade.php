@@ -36,10 +36,11 @@
         @foreach ( $datas as $data )
         <div class="col mb-4">
           <div class="card">
-              <img src="{{ url($data['image']) }}" class="card-img-top" alt="...">
+              <img src="{{ url('/images/'.$data['image']) }}" class="card-img-top" alt="...">
               <div class="card-body">
                   <h5 class="card-title">{{ $data['nama'] }}</h5>
                   <p class="card-text">{{ $data['deskripsi'] }}</p>
+
                 </div>
             </div>
         </div>
@@ -88,5 +89,12 @@
       <span class="sr-only">Next</span>
     </button>
   </div>
+
+
+
+
+
+
+
 
 
