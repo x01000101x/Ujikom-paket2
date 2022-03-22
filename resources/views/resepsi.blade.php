@@ -204,8 +204,17 @@ mark {
 
                                 </div>
                                 <b>
+                                    <?php
+                                    $ou = $data['booked'];
+                                    $bou = $data['ended'];
 
-                                        <h4 style="background-color: white; color : black;">&nbsp; Total : Rp. {{ $data['harga'] * $data['avail']}}</h4>
+                                    $from = date_create(date($ou));
+                                    $to = date_create($bou);
+                                    $diff = date_diff($to, $from);
+
+                                    $sum= $diff->format('%R%a'); ?>
+
+                                        <h4 style="background-color: white; color : black;">&nbsp; Total : @currency($data['harga'] * (-$sum))</h4>
 
                                 </b>
                                 <br>

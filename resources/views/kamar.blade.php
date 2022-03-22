@@ -39,7 +39,7 @@
     <b>
         <h1 class="card-title">{{ $data['tipe'] }}</h1>
     </b>
-    <h3 class="card-title">Rp.{{ $data['harga'] }}/Hari</h3>
+    <h3 class="card-title">@currency($data['harga'])/Hari</h3>
     <p class="card-text">{{ $data['deskripsi'] }}</p>
     <p class="card-text"><small class="text-muted">Saat ini tersedia : {{ $data['avail'] }} kamar</small></p>
   </div>

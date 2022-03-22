@@ -58,35 +58,43 @@ class BookController extends Controller
 
         if ($jumlah && $date1 && $date2) {
             if ($date1 >= $konversi && $date2 >= $konversi) {
-                if ($date2 <= date('Y-m-d', strtotime('+3 month' . $date2))) {
+                if ($date1 != $date2) {
 
-                    if ($kamar_avail <= 0) {
+                    if ($date2 <= date('Y-m-d', strtotime('+3 month' . $date2))) {
+
+                        if ($kamar_avail <= 0) {
+                            if (!$auth) {
+                                echo "<script>
+                            alert('Maaf kamar kosong');
+                            window.location.href='/';
+                            </script>";
+                            } else {
+                                echo "<script>
+                            alert('Maaf kamar kosong');
+                            window.location.href='/abc';
+                            </script>";
+                            }
+                        } else { #
+                            return view('apply', compact('date1', 'date2', 'jumlah', 'data'));
+                        }
+                    } else {
                         if (!$auth) {
                             echo "<script>
-                            alert('Maaf kamar kosong');
+                            alert('Mohon jangan melebihi 3 bulan');
                             window.location.href='/';
                             </script>";
                         } else {
                             echo "<script>
-                            alert('Maaf kamar kosong');
-                            window.location.href='/abc';
-                            </script>";
-                        }
-                    } else { #
-                        return view('apply', compact('date1', 'date2', 'jumlah', 'data'));
-                    }
-                } else {
-                    if (!$auth) {
-                        echo "<script>
-                            alert('Mohon jangan melebihi 3 bulan');
-                            window.location.href='/';
-                            </script>";
-                    } else {
-                        echo "<script>
                         alert('Mohon jangan melebihi 3 bulan');
                         window.location.href='/abc';
                         </script>";
+                        }
                     }
+                } else {
+                    echo "<script>
+                alert('Maaf minimal pesan untuk 1 hari');
+                window.location.href='/abc';
+                </script>";
                 }
             } elseif ($date1 > $date2 && $date2 < $date1) {
                 if (!$auth) {
