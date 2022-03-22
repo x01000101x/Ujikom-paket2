@@ -61,7 +61,7 @@ picture{
             <div class="cekKamar" style= "padding: 10 10 10 10; border-radius: 1%">
 
 
-            <p>Kamar tersedia, silahkan <a href="/login">login</a> untuk memesan : </p>
+            <p>Kamar tersedia, silahkan <a href="/register">register</a> atau <a href="/login">login</a> untuk memesan : </p>
             <ul>
                 @foreach ($data as $kamar)
 
