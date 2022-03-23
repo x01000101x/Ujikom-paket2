@@ -110,7 +110,7 @@
 <footer style="background-color: grey" class="footer">
     <!-- Copyright -->
     <div class="footer-copyright text-center py-3">© 2022 Copyright:
-        <a href="#"> Leo</a>
+        <a href="#"> DAMANIK CORP</a>
     </div>
     <!-- Copyright -->
 
