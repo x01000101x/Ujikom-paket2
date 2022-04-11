@@ -232,11 +232,13 @@ mark {
             </div>
             @endforeach
 
-<br>
-                    <form action="/unduh" method="get">
-                        <button class="btn btn-primary" type="submit" name="unduh">DOWNLOAD RESEPSI</button>
-                    </form>
-        </section>
+            <br>
+            <div class="container p-0">
+                <form action="/unduh" method="get">
+                    <button class="btn btn-primary" type="submit" name="unduh">DOWNLOAD RESEPSI</button>
+                </form>
+                <div>
+            </section>
 
 
 

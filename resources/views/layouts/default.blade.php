@@ -34,7 +34,7 @@
         <ul class="navbar-nav mr-auto">
             @if(Auth::user() and Auth::user()->roles == "resepsionis")
             <li class="nav-item {{ request()->routeIs('resepsionis') ? 'active' : ''}}">
-                <a class="nav-link" href="/resepsionis">Resepsionis here</a>
+                <a class="nav-link" href="/resepsionis">Resepsionis</a>
             </li>
             @endif
           <li class="nav-item {{ request()->Is('/') || request()->routeIs('abc') || request()->routeIs('pesan') ? 'active' : ''}}">
@@ -86,6 +86,7 @@
             @endif
         </ul>
         @else
+
         <ul class="navbar-nav" style="margin-right: 100px">
 
             <li class="nav-item dropdown">
@@ -148,6 +149,7 @@
     <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
+
 
   </body>
 </html>

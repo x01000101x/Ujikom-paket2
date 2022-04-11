@@ -71,6 +71,15 @@ picture{
                 </ul>
                             </div>
                 @else
+                <h2 style="background-color: lime">Kamar tersedia!</h2>
+                <p>Tipe kamar yang tersedia :</p>
+                @foreach ($data as $kamar)
+
+
+                <li>{{ $kamar->tipe }} : {{ $kamar->avail }} kamar (@currency($kamar->harga)/malam)</li>
+
+                @endforeach
+                <br>
                     <h1>Pesan</h1>
                     <form action="/apply" method="POST">
                 @csrf

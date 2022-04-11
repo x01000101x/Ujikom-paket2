@@ -35,7 +35,7 @@
     <div class="row row-cols-1 row-cols-md-3">
         @foreach ( $datas as $data )
         <div class="col mb-4">
-          <div class="card">
+          <div style="height: 100%" class="card">
               <img src="{{ url('/images/'.$data['image']) }}" class="card-img-top" alt="...">
               <div class="card-body">
                   <h5 class="card-title">{{ $data['nama'] }}</h5>
