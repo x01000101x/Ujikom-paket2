@@ -148,6 +148,9 @@
         <div class="modal-body">
 @foreach ($shows as $show)
 {{ $show['id'] }}
+{{ $show['booked'] }}
+{{ $show['ended'] }}
+
 @endforeach
         </div>
         <div class="modal-footer">
