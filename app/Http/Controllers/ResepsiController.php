@@ -6,6 +6,7 @@ use App\Models\Kamar;
 use App\Models\Resepsi;
 use Illuminate\Http\Request;
 use Barryvdh\DomPDF\PDF;
+use Encore\Admin\Grid\Filter\Where;
 
 class ResepsiController extends Controller
 {
@@ -29,6 +30,11 @@ class ResepsiController extends Controller
     public function resepsionisFunc(Request $request)
     {
         $resepsi = new Resepsi();
+        $kamar = new Kamar();
+
+        $kampret = $request->id_resepsi;
+
+        $shows = $kamar::join('resepsis', "kamars.id", "resepsis.id_kamar")->where('resepsis.id', $kampret)->get()->toArray();
 
         $datas = $resepsi::select('*')->orderBy('id', 'desc')->get()->toArray();
         $keyword = $request->search;
@@ -45,7 +51,7 @@ class ResepsiController extends Controller
         $datas = $resepsi::select('*')->orderBy('id', 'desc')->where('tamu', 'like', "%" . $keyword . "%")->where('booked', 'like', "%" . $date . "%")->where('ended', 'like', "%" . $date . "%")->paginate(5);
 
 
-        return view('resepsionis', compact('datas'))->with('i', (request()->input('page', 1) - 1) * 5);
+        return view('resepsionis', compact('datas', 'shows'))->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
     public function Aksi(Request $request)

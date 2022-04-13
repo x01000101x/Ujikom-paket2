@@ -42,7 +42,6 @@
             <button type="submit" class="btn btn-primary mb-1">Cari</button>
         </div>
     </form>
-
     <a style="float: left" href="resepsionis" type="submit" class="btn btn-warning mb-1">Refresh</a>
 </div>
     {{-- end search --}}
@@ -99,7 +98,12 @@
                                 <input type="number" name="id_kamar" value="{{ $data['id_kamar'] }}" hidden>
 
                                   <button class="btn btn-danger" onclick="return confirm('Apakah anda ingin checkout tamu = {{ $data['tamu'] }} ?')" name="cekout" type="submit">Cek-out</button>
+                                     <!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+    Lihat
+  </button>
                                 </form>
+
                         </td>
                         @php
                             $i += 1;
@@ -131,6 +135,28 @@
 <br>
 <br>
 
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Reservasi</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+@foreach ($shows as $show)
+{{ $show['id'] }}
+@endforeach
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
 @endsection
 
