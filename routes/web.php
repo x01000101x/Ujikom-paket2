@@ -61,6 +61,8 @@ Route::middleware(['auth', 'role:resepsionis'])->group(function () {
     Route::get('resepsionis', [ResepsiController::class, 'resepsionisFunc'])->name('resepsionis')->middleware('auth');
     Route::post('resepsiAksi', [ResepsiController::class, 'Aksi'])->name('resepsiAksi')->middleware('auth');
     Route::post('resepsiDelete', [ResepsiController::class, 'Delete'])->name('resepsiDelete')->middleware('auth');
+    // Route::get('showResepsi', [ResepsiController::class, 'showreservasi'])->name('resepsishow')->middleware('auth');
+
     // Route::get('search', [ResepsiController::class, 'Search'])->name('search')->middleware('auth');
 });
 

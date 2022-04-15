@@ -93,16 +93,24 @@
 
                             <form style ='float: left; padding: 5px;' action="resepsiDelete" method="POST">
                                 @csrf
+                                {{-- {{ ($data['id']) }} --}}
                                 <input type="text" name="id_resepsi" value="{{ $data['id'] }}" hidden>
                                 <input type="text" name="avail" value="{{ $data['avail'] }}" hidden>
                                 <input type="number" name="id_kamar" value="{{ $data['id_kamar'] }}" hidden>
 
-                                  <button class="btn btn-danger" onclick="return confirm('Apakah anda ingin checkout tamu = {{ $data['tamu'] }} ?')" name="cekout" type="submit">Cek-out</button>
-                                     <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-    Lihat
-  </button>
-                                </form>
+                                <button class="btn btn-danger" onclick="return confirm('Apakah anda ingin checkout tamu = {{ $data['tamu'] }} ?')" name="cekout" type="submit">Cek-out</button>
+                                <!-- Button trigger modal -->
+                            </form>
+
+                            <form style ='float: right; padding: 5px;' action="resepsi" method="GET">
+                                @csrf
+                                <input type="text" name="id_resepsi" value="{{ $data['id'] }}" hidden>
+
+                                <button type="button" name="hutu" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal-{{$data->id}}">
+                                    Lihat
+                                  </button>
+
+                            </form>
 
                         </td>
                         @php
@@ -136,30 +144,41 @@
 <br>
 
 <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Reservasi</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-@foreach ($shows as $show)
-{{ $show['id'] }}
-{{ $show['booked'] }}
-{{ $show['ended'] }}
+@foreach ($datas as $data)
 
-@endforeach
+<div name="hutu" class="modal fade" id="exampleModal-{{$data->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Reservasi</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+
+    {{ $data['id'] }}
+
+            @foreach ($shows as $show)
+            <p>
+                {{ $show['id'] }}
+            </p>
+            <p>
+                {{ $show['booked'] }}
+            </p>
+            <p>
+                {{ $show['ended'] }}
+            </p>
+            @endforeach
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
         </div>
-      </div>
     </div>
-  </div>
+    @endforeach
+</div>
+</div>
 
 @endsection
 

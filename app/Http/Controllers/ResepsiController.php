@@ -20,8 +20,6 @@ class ResepsiController extends Controller
         $datas = $kamar::join('resepsis', "kamars.id", "resepsis.id_kamar")
             ->where("id_user", $id)->get()->toArray();
 
-
-
         // dd($datas);
 
         return view('resepsi', compact('datas'));
@@ -81,6 +79,18 @@ class ResepsiController extends Controller
         $resepsi::where('id', $kampret)->firstorfail()->delete();
 
         return redirect()->route('resepsionis')->with('message', 'Berhasil Cek-out!');
+    }
+
+    public function showreservasi(Request $request)
+    {
+        $resepsi = new Resepsi();
+        $kamar = new Kamar();
+
+        $kampret = $request->id_resepsi;
+
+        $shows = $kamar::join('resepsis', "kamars.id", "resepsis.id_kamar")->where('resepsis.id', $kampret)->get()->toArray();
+
+        return view('resepsionis', compact('shows'));
     }
 
     // public function search(Request $request)
