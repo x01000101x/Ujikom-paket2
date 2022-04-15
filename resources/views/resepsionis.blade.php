@@ -19,6 +19,13 @@
 <div class="cekKamar" style= "padding: 10 10 10 10; border-radius: 1%">
 
 
+    {{-- TESTING HERE --}}
+@foreach ($datas as $data)
+
+    {{ $data['id'] }}
+
+@endforeach
+
 
     <h1>Cek In Tamu</h1>
     <br>
@@ -63,17 +70,18 @@
                 @php
                     $i = 1;
                 @endphp
-                  @foreach ( $datas as $data)
-                  @if($data['is_checked'] == '1')
-                  <tr class="table-success">
-                      @else
-                      <tr>
-                      @endif
-                      <th scope="row">
-                          {{ $i; }}
-                     </th>
-                      <td>{{ $data['tamu'] }}</td>
-                      <td>{{ $data['booked'] }}</td>
+
+@foreach ( $datas as $data)
+@if($data['is_checked'] == '1')
+<tr class="table-success">
+    @else
+    <tr>
+        @endif
+        <th scope="row">
+            {{ $i; }}
+        </th>
+        <td>{{ $data['tamu'] }}</td>
+        <td>{{ $data['booked'] }}</td>
                       <td>{{ $data['ended'] }}</td>
                       <td>
                           <form style ='float: left; padding: 5px;' action="resepsiAksi" method="POST">
@@ -88,7 +96,7 @@
                             <input type="text" name="notelp" value="{{ $data['notelp'] }}" hidden>--}}
 
 
-                              <button class="btn btn-primary" onclick="return confirm('Apakah anda ingin checkin tamu = {{ $data['tamu'] }}?')" name="cekin" type="submit">Cek-in</button>
+                            <button class="btn btn-primary" onclick="return confirm('Apakah anda ingin checkin tamu = {{ $data['tamu'] }}?')" name="cekin" type="submit">Cek-in</button>
                             </form>
 
                             <form style ='float: left; padding: 5px;' action="resepsiDelete" method="POST">
@@ -101,26 +109,28 @@
                                 <button class="btn btn-danger" onclick="return confirm('Apakah anda ingin checkout tamu = {{ $data['tamu'] }} ?')" name="cekout" type="submit">Cek-out</button>
                                 <!-- Button trigger modal -->
                             </form>
-
-                            <form style ='float: right; padding: 5px;' action="resepsi" method="GET">
+                            <form style ='float: left; padding: 5px;' action="resepsi" method="GET">
                                 @csrf
+                                {{-- {{ ($data['id']) }} --}}
                                 <input type="text" name="id_resepsi" value="{{ $data['id'] }}" hidden>
 
-                                <button type="button" name="hutu" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal-{{$data->id}}">
-                                    Lihat
-                                  </button>
 
+                                <button type="button" id="detail" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-id="{{ $data['resepsis.id'] }}" data-booked="{{ $data['resepsis.booked'] }}">
+                                    Lihat
+                                </button>
                             </form>
+
+
 
                         </td>
                         @php
                             $i += 1;
-                        @endphp
+                            @endphp
 
                     </tr>
                     @endforeach
               </tbody>
-        </table>
+            </table>
       </div>
 
         </div>
@@ -144,9 +154,9 @@
 <br>
 
 <!-- Modal -->
-@foreach ($datas as $data)
 
-<div name="hutu" class="modal fade" id="exampleModal-{{$data->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" role="dialog">
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" role="dialog">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -155,33 +165,51 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <div class="modal-body">
+            <div class="modal-body table-responsive">
+                <table class="table table-bordered no-margin">
+                    <tbody>
+                        <tr>
+                            <th>ID</th>
+                            <td>
+                                <span id="id"></span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>booked
+                            </th>
 
-    {{ $data['id'] }}
+                                <td>
+                                    <span id="booked"></span>
+                                </td>
+                            </tr>
+                    </tbody>
+                </table>
 
-            @foreach ($shows as $show)
-            <p>
-                {{ $show['id'] }}
-            </p>
-            <p>
-                {{ $show['booked'] }}
-            </p>
-            <p>
-                {{ $show['ended'] }}
-            </p>
-            @endforeach
+
         </div>
         <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
             <button type="button" class="btn btn-primary">Save changes</button>
         </div>
     </div>
-    @endforeach
 </div>
 </div>
 
 @endsection
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script>
+    $(document).ready(function(){
+        $(document).on('click', '#detail', function() {
+            var id = $(this).data('id');
+            var booked = $(this).data('booked');
+            $('#id').text(id);
+            $('#booked').text(booked);
+
+         })
+    });
+</script>
 
 
 

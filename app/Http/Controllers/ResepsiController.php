@@ -32,7 +32,7 @@ class ResepsiController extends Controller
 
         $kampret = $request->id_resepsi;
 
-        $shows = $kamar::join('resepsis', "kamars.id", "resepsis.id_kamar")->where('resepsis.id', $kampret)->get()->toArray();
+        // $shows = $kamar::join('resepsis', "kamars.id", "resepsis.id_kamar")->get()->first();
 
         $datas = $resepsi::select('*')->orderBy('id', 'desc')->get()->toArray();
         $keyword = $request->search;
@@ -46,10 +46,10 @@ class ResepsiController extends Controller
         // $date = new DateTime($keyword2);
         // dd($date);
 
-        $datas = $resepsi::select('*')->orderBy('id', 'desc')->where('tamu', 'like', "%" . $keyword . "%")->where('booked', 'like', "%" . $date . "%")->where('ended', 'like', "%" . $date . "%")->paginate(5);
+        $datas = $resepsi::join('kamars', 'kamars.id', 'resepsis.id_kamar')->select('*')->orderBy('resepsis.id', 'desc')->where('resepsis.tamu', 'like', "%" . $keyword . "%")->where('resepsis.booked', 'like', "%" . $date . "%")->where('resepsis.ended', 'like', "%" . $date . "%")->paginate(5);
 
 
-        return view('resepsionis', compact('datas', 'shows'))->with('i', (request()->input('page', 1) - 1) * 5);
+        return view('resepsionis', compact('datas'))->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
     public function Aksi(Request $request)
