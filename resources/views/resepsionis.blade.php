@@ -118,7 +118,8 @@
 
 
                                 <button type="button" id="detail" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"
-                                data-id="{{ $data['id'] }}"
+                                data-id="{{ $data['resepid'] }}"
+                                data-nama="{{ $data['nama'] }}"
                                 data-ended="{{ $data['ended'] }}"
                                 data-notelp="{{ $data['notelp'] }}"
                                 data-email="{{ $data['email'] }}"
@@ -173,7 +174,11 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
+
             <div class="modal-body table-responsive">
+                <b>
+                    <h5>A/n <span id="nama"></span></h5>
+                    </b>
                 <table class="table table-bordered no-margin">
                     <tbody>
                         <tr>
@@ -214,6 +219,14 @@
                                                 <span id="notelp"></span>
                                             </td>
                                         </tr>
+                                        <tr>
+                                            <th>Jumlah
+                                            </th>
+
+                                                <td>
+                                                    <span id="notelp"></span>
+                                                </td>
+                                            </tr>
 
                     </tbody>
                 </table>
@@ -236,6 +249,7 @@
     $(document).ready(function(){
         $(document).on('click', '#detail', function() {
             var id = $(this).data('id');
+            var nama = $(this).data('nama');
             var tamu = $(this).data('tamu');
             var tipe = $(this).data('tipe');
             var kamar = $(this).data('kamar');
@@ -243,8 +257,10 @@
             var notelp = $(this).data('notelp');
             var booked = $(this).data('booked');
             var ended = $(this).data('ended');
+            var avail = $(this).data('avail');
 
             $('#id').text(id);
+            $('#nama').text(nama);
             $('#booked').text(booked);
             $('#ended').text(ended);
             $('#tamu').text(tamu);
@@ -252,6 +268,8 @@
             $('#kamar').text(kamar);
             $('#email').text(email);
             $('#notelp').text(notelp);
+            $('#avail').text(avail);
+
 
          })
     });
