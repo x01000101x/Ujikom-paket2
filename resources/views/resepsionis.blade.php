@@ -303,7 +303,6 @@
             $('#tersedia').text(tersedia);
             $('#harga').text(harga);
 
-
          })
     });
 </script>

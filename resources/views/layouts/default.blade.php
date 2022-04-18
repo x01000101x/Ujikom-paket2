@@ -90,7 +90,7 @@
         <ul class="navbar-nav" style="margin-right: 100px">
 
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{Auth::user()->name; }}</a>
+                <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{Auth::user()->name; }}</a>
                 <div class="dropdown-menu" aria-labelledby="dropdown01">
                     <form action="{{ route('logout') }}" method="POST">
                         @csrf
