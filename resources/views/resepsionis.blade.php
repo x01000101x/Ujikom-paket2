@@ -3,6 +3,14 @@
 
 @section('content')
 
+<style type="text/css">
+    .pagination li{
+        float: left;
+        list-style-type: none;
+        margin:5px;
+    }
+</style>
+
 <div class="starter-template">
     <br>
 
@@ -154,6 +162,10 @@
                     @endforeach
               </tbody>
             </table>
+
+            *Jumlah Reservasi : {{ $datas->total() }} <br/>
+
+            {{ $datas->links() }}
       </div>
 
         </div>
@@ -262,7 +274,9 @@
                     </tbody>
                 </table>
 
-        </div>
+            </div>
+
+
         <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
 

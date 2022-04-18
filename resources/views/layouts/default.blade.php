@@ -118,7 +118,6 @@
 </footer>
 <!-- Footer -->
 
-
 <script>
 //    // Get the container element
 // var btnContainer = document.getElementById("myDIV");
