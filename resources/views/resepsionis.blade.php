@@ -88,7 +88,7 @@
                       <td>
                           <form style ='float: left; padding: 5px;' action="resepsiAksi" method="POST">
                             @csrf
-                            <input type="text" name="id_resepsi" value="{{ $data['id'] }}" hidden>
+                            <input type="text" name="id_resepsi" value="{{ $data['resepid'] }}" hidden>
                             {{-- <input type="text" name="id_user" value="{{ $data['id_user'] }}" hidden>
                             <input type="text" name="booked" value="{{ $data['booked'] }}" hidden>
                             <input type="text" name="ended" value="{{ $data['ended'] }}" hidden>
@@ -104,7 +104,7 @@
                             <form style ='float: left; padding: 5px;' action="resepsiDelete" method="POST">
                                 @csrf
                                 {{-- {{ ($data['id']) }} --}}
-                                <input type="text" name="id_resepsi" value="{{ $data['id'] }}" hidden>
+                                <input type="text" name="id_resepsi" value="{{ $data['resepid'] }}" hidden>
                                 <input type="text" name="avail" value="{{ $data['avail'] }}" hidden>
                                 <input type="number" name="id_kamar" value="{{ $data['id_kamar'] }}" hidden>
 
@@ -116,14 +116,28 @@
                                 {{-- {{ ($data['id']) }} --}}
                                 <input type="text" name="id_resepsi" value="{{ $data['id'] }}" hidden>
 
+                                <?php
+                                $ou = $data['booked'];
+                                $bou = $data['ended'];
 
-                                <button type="button" id="detail" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"
+                                $from = date_create(date($ou));
+                                $to = date_create($bou);
+                                $diff = date_diff($to, $from);
+
+                                $sum= $diff->format('%R%a');
+
+                                ?>
+
+                                <button type="button" id="detail" class="btn btn-warning" data-toggle="modal" data-target="#exampleModal"
                                 data-id="{{ $data['resepid'] }}"
                                 data-nama="{{ $data['nama'] }}"
                                 data-ended="{{ $data['ended'] }}"
+                                data-tipe="{{ $data['tipe'] }}"
                                 data-notelp="{{ $data['notelp'] }}"
                                 data-email="{{ $data['email'] }}"
                                 data-tamu="{{ $data['tamu'] }}"
+                                data-tersedia="{{ $data['tersedia'] }}"
+                                data-harga="@currency($data['harga'] * (-$sum))"
                                 data-booked="{{ $data['booked'] }}">
                                     Lihat
                                 </button>
@@ -169,7 +183,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Reservasi#<span id="id"></span></h5>
+                <h5 class="modal-title" id="exampleModalLabel">Reservasi #<span id="id"></span></h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -182,13 +196,13 @@
                 <table class="table table-bordered no-margin">
                     <tbody>
                         <tr>
-                            <th>tamu</th>
+                            <th>Tamu</th>
                             <td>
                                 <span id="tamu"></span>
                             </td>
                         </tr>
                         <tr>
-                            <th>booked
+                            <th>Dari
                             </th>
 
                                 <td>
@@ -196,7 +210,7 @@
                                 </td>
                             </tr>
                             <tr>
-                                <th>ended
+                                <th>Hingga
                                 </th>
 
                                     <td>
@@ -204,7 +218,7 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <th>email
+                                    <th>Email
                                     </th>
 
                                         <td>
@@ -212,7 +226,7 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <th>notelp
+                                        <th>No. Telp
                                         </th>
 
                                             <td>
@@ -220,22 +234,38 @@
                                             </td>
                                         </tr>
                                         <tr>
-                                            <th>Jumlah
+                                            <th>Kamar
                                             </th>
 
                                                 <td>
-                                                    <span id="notelp"></span>
+                                                    <span id="tersedia"></span>
                                                 </td>
                                             </tr>
+                                            <tr>
+                                                <th>Tipe
+                                                </th>
+
+                                                    <td>
+                                                        <span id="tipe"></span>
+                                                    </td>
+                                                </tr>
+                                            <tr class="table-warning">
+                                                <th>Total
+                                                </th>
+
+                                                    <td>
+                                                        <span id="harga"></span>
+                                                    </td>
+                                                </tr>
+
 
                     </tbody>
                 </table>
 
-
         </div>
         <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Save changes</button>
+
         </div>
     </div>
 </div>
@@ -257,7 +287,9 @@
             var notelp = $(this).data('notelp');
             var booked = $(this).data('booked');
             var ended = $(this).data('ended');
-            var avail = $(this).data('avail');
+            var tersedia = $(this).data('tersedia');
+            var harga = $(this).data('harga');
+
 
             $('#id').text(id);
             $('#nama').text(nama);
@@ -268,7 +300,8 @@
             $('#kamar').text(kamar);
             $('#email').text(email);
             $('#notelp').text(notelp);
-            $('#avail').text(avail);
+            $('#tersedia').text(tersedia);
+            $('#harga').text(harga);
 
 
          })
