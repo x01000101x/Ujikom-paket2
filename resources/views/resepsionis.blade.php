@@ -19,10 +19,12 @@
 <div class="cekKamar" style= "padding: 10 10 10 10; border-radius: 1%">
 
 
+
     {{-- TESTING HERE --}}
 @foreach ($datas as $data)
 
-    {{ $data['id'] }}
+    {{-- {{dd($data) }} --}}
+
 
 @endforeach
 
@@ -115,7 +117,13 @@
                                 <input type="text" name="id_resepsi" value="{{ $data['id'] }}" hidden>
 
 
-                                <button type="button" id="detail" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-id="{{ $data['resepsis.id'] }}" data-booked="{{ $data['resepsis.booked'] }}">
+                                <button type="button" id="detail" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"
+                                data-id="{{ $data['id'] }}"
+                                data-ended="{{ $data['ended'] }}"
+                                data-notelp="{{ $data['notelp'] }}"
+                                data-email="{{ $data['email'] }}"
+                                data-tamu="{{ $data['tamu'] }}"
+                                data-booked="{{ $data['booked'] }}">
                                     Lihat
                                 </button>
                             </form>
@@ -160,7 +168,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Reservasi</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Reservasi#<span id="id"></span></h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -169,9 +177,9 @@
                 <table class="table table-bordered no-margin">
                     <tbody>
                         <tr>
-                            <th>ID</th>
+                            <th>tamu</th>
                             <td>
-                                <span id="id"></span>
+                                <span id="tamu"></span>
                             </td>
                         </tr>
                         <tr>
@@ -182,6 +190,31 @@
                                     <span id="booked"></span>
                                 </td>
                             </tr>
+                            <tr>
+                                <th>ended
+                                </th>
+
+                                    <td>
+                                        <span id="ended"></span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>email
+                                    </th>
+
+                                        <td>
+                                            <span id="email"></span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>notelp
+                                        </th>
+
+                                            <td>
+                                                <span id="notelp"></span>
+                                            </td>
+                                        </tr>
+
                     </tbody>
                 </table>
 
@@ -203,9 +236,22 @@
     $(document).ready(function(){
         $(document).on('click', '#detail', function() {
             var id = $(this).data('id');
+            var tamu = $(this).data('tamu');
+            var tipe = $(this).data('tipe');
+            var kamar = $(this).data('kamar');
+            var email = $(this).data('email');
+            var notelp = $(this).data('notelp');
             var booked = $(this).data('booked');
+            var ended = $(this).data('ended');
+
             $('#id').text(id);
             $('#booked').text(booked);
+            $('#ended').text(ended);
+            $('#tamu').text(tamu);
+            $('#tipe').text(tipe);
+            $('#kamar').text(kamar);
+            $('#email').text(email);
+            $('#notelp').text(notelp);
 
          })
     });

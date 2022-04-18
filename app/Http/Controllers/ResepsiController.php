@@ -46,7 +46,7 @@ class ResepsiController extends Controller
         // $date = new DateTime($keyword2);
         // dd($date);
 
-        $datas = $resepsi::join('kamars', 'kamars.id', 'resepsis.id_kamar')->select('*')->orderBy('resepsis.is_checked', 'asc')->where('resepsis.tamu', 'like', "%" . $keyword . "%")->where('resepsis.booked', 'like', "%" . $date . "%")->where('resepsis.ended', 'like', "%" . $date . "%")->paginate(5);
+        $datas = $resepsi::join('kamars', 'kamars.id', 'resepsis.id_kamar')->selectRaw('kamars.id as kamarid, resepsis.id as resepsid')->select('*')->orderBy('resepsis.is_checked', 'asc')->where('resepsis.tamu', 'like', "%" . $keyword . "%")->where('resepsis.booked', 'like', "%" . $date . "%")->where('resepsis.ended', 'like', "%" . $date . "%")->paginate(5);
 
 
         return view('resepsionis', compact('datas'))->with('i', (request()->input('page', 1) - 1) * 5);
