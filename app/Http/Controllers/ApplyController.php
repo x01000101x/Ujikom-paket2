@@ -27,6 +27,7 @@ class ApplyController extends Controller
         $resepsi->notelp = $request->phone;
         $resepsi->tamu = $request->tamu;
         $resepsi->id_kamar = $request->kamar;
+        $resepsi->method = $request->metode;
 
         // dd($joinan[0]['avail']);
 

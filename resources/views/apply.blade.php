@@ -122,6 +122,15 @@ picture{
                               @endforeach
                             </select>
                     </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlSelect1">Pilih Metode Pembayaran</label>
+                        <select name="metode" class="form-control" id="exampleFormControlSelect1">
+
+                            <option value="tunai">Tunai</option>
+                            <option value="transfer">Transfer</option>
+
+                        </select>
+                    </div>
                     <br>
                     <button type="submit" onclick="return confirm('Apakah anda yakin ingin melakukan booking?')" class="btn btn-primary">Pesan</button>
                     <a href="/abc" class="btn btn-danger">Kembali</a>
