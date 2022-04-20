@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Kamar;
 use App\Models\Resepsi;
 use Illuminate\Http\Request;
+use App\Http\Controllers\TransferController;
 
 class ApplyController extends Controller
 {
@@ -38,7 +39,37 @@ class ApplyController extends Controller
         $minus = $joinan[0]['avail'] - $request->jumlah;
         $kamar->where("id", $request->kamar)->update(['avail' => $minus]);
         $resepsi->save();
-        return redirect()->route('resepsi')->with('message', 'Berhasil melakukan booking kamar! silahkan cetak resepsi ini dan serahkan kepada resepsionis untuk check-in');
+
+        $datas = $kamar::join('resepsis', "kamars.id", "resepsis.id_kamar")
+            ->where("id_user", $id)->get()->toArray();
+
+        foreach ($datas as $data) {
+
+            $ou = $data['booked'];
+            $bou = $data['ended'];
+
+            $from = date_create(date($ou));
+            $to = date_create($bou);
+            $diff = date_diff($to, $from);
+
+            $sum = $diff->format('%R%a');
+
+            $summarizer = $data['harga'] * (-$sum);
+        }
+
+        $rooms = $resepsi->nama;
+        $jumlah = $request->jumlah;
+
+        if ($request->metode == "transfer") {
+
+            //parameter idopin nama produk (contoh superior)
+            //paramater jumlah berapa kali mesan
+            //parameter harga berapa harga
+            $url = TransferController::idopin($rooms, $jumlah, $summarizer);
+            // return redirect()->route('transfer')->compact($passing);
+        } else {
+            return redirect()->route('resepsi')->with('message', 'Berhasil melakukan booking kamar! silahkan cetak resepsi ini dan serahkan kepada resepsionis untuk check-in');
+        }
         // }
     }
 }
