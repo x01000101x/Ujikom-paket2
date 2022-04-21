@@ -3,50 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Kamar;
-use App\Models\Resepsi;
 
 class TransferController extends Controller
 {
-    public function ipaymu(Request $request)
+    public function ipaymu($rooms, $jumlah, $summarizer)
     {
-        $id = auth()->id();
-
-        $resepsi = new Resepsi();
-        $kamar = new Kamar();
-
-        $resepsi->id_user = $id;
-        $resepsi->booked = $request->date1;
-        $resepsi->ended = $request->date2;
-        $resepsi->avail = $request->jumlah;
-        $resepsi->nama = $request->nama_pemesan;
-        $resepsi->email = $request->email;
-        $resepsi->notelp = $request->phone;
-        $resepsi->tamu = $request->tamu;
-        $resepsi->id_kamar = $request->kamar;
-        $resepsi->method = $request->metode;
-
-
-        $datas = $kamar::join('resepsis', "kamars.id", "resepsis.id_kamar")
-            ->where("id_user", $id)->get()->toArray();
-
-        foreach ($datas as $data) {
-
-            $ou = $data['booked'];
-            $bou = $data['ended'];
-
-            $from = date_create(date($ou));
-            $to = date_create($bou);
-            $diff = date_diff($to, $from);
-
-            $sum = $diff->format('%R%a');
-
-            $summarizer = $data['harga'] * (-$sum);
-        }
-
-        $rooms = $resepsi->nama;
-        $jumlah = $request->jumlah;
-        // dd($summarizer);
 
         $produk = [$rooms];
         $quantity = [$jumlah];

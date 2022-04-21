@@ -56,7 +56,7 @@ Route::get('fasilitas', [FasilitasController::class, 'index'])->name('fasilitas'
 
 Route::get('kamar', [KamarController::class, 'index'])->name('kamar');
 
-Route::get('transfer', [TransferController::class, 'ipaymu'])->name('transfer');
+// Route::get('transfer', [ApplyController::class, 'ipaymu'])->name('transfer');
 
 Route::middleware(['auth', 'role:resepsionis'])->group(function () {
     Route::get('resepsionis', [ResepsiController::class, 'resepsionisFunc'])->name('resepsionis')->middleware('auth');
