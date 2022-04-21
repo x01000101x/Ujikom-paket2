@@ -8,8 +8,7 @@ use App\Http\Controllers\FasilitasController;
 use App\Http\Controllers\ResepsiController;
 use App\Http\Controllers\PdfController;
 use App\Http\Controllers\KamarController;
-
-
+use App\Http\Controllers\TransferController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -56,6 +55,8 @@ Route::get('unduh',  [PdfController::class, 'download'])->name('download')->midd
 Route::get('fasilitas', [FasilitasController::class, 'index'])->name('fasilitas');
 
 Route::get('kamar', [KamarController::class, 'index'])->name('kamar');
+
+Route::get('transfer', [TransferController::class, 'ipaymu'])->name('transfer');
 
 Route::middleware(['auth', 'role:resepsionis'])->group(function () {
     Route::get('resepsionis', [ResepsiController::class, 'resepsionisFunc'])->name('resepsionis')->middleware('auth');

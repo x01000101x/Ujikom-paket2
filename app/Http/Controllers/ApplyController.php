@@ -59,14 +59,18 @@ class ApplyController extends Controller
 
         $rooms = $resepsi->nama;
         $jumlah = $request->jumlah;
+        dd($summarizer);
 
         if ($request->metode == "transfer") {
 
-            //parameter idopin nama produk (contoh superior)
+            // dd("hello");
+            //parameter ipaymu nama produk (contoh superior)
             //paramater jumlah berapa kali mesan
             //parameter harga berapa harga
-            $url = TransferController::idopin($rooms, $jumlah, $summarizer);
-            // return redirect()->route('transfer')->compact($passing);
+
+            // TransferController::ipaymu($rooms, $jumlah, $summarizer);
+            $this->ipaymu($rooms, $jumlah, $summarizer);
+            return redirect()->route('transfer');
         } else {
             return redirect()->route('resepsi')->with('message', 'Berhasil melakukan booking kamar! silahkan cetak resepsi ini dan serahkan kepada resepsionis untuk check-in');
         }
