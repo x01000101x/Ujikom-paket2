@@ -69,7 +69,7 @@ class ResepsiController extends Controller
         $keyword = $request->search;
         $keyword2 = $request->search_date;
 
-        dd($keyword2);
+        // dd($keyword2);
 
         if ($request->search_date == null) {
             $date = "";
