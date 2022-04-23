@@ -11,3 +11,5 @@ class Kamar extends Model
 
     protected $fillable = ['avail'];
 }
+
+// $kamar->thumbnail('small', 'image');

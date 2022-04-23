@@ -40,7 +40,7 @@ class RoomController extends AdminController
     }
 
     /**
-     * Make a show builder.
+     * Make a show builder. <img style="height: 400px;" src="{{url('/images/' . $data['image']) }}" class="card-img-top" alt="...">
      *
      * @param mixed $id
      * @return Show
@@ -76,7 +76,8 @@ class RoomController extends AdminController
         $form->number('harga', __('Harga'));
         $form->number('diskon', __('Diskon'));
         $form->textarea('deskripsi', __('Deskripsi'));
-        $form->image('image')->uniqueName();
+        // $form->image('image')->uniqueName();
+        $form->image('image')->thumbnail('small', $width = 300, $height = 300)->uniqueName();
 
 
         return $form;
