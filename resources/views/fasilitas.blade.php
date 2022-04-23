@@ -48,7 +48,7 @@
                   <h5 class="card-title">{{ $data['nama'] }}</h5>
                   <p class="card-text" maxlength="20">{{ $data['deskripsi'] }}</p>
   <!-- Button trigger modal -->
-  <button type="button" id="detail" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"                                 data-id="{{ $data['resepid'] }}"
+  <button type="button" id="detail" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"
   data-id="{{ $data['id'] }}"
   data-nama="{{ $data['nama'] }}"
   data-image="{{ $data['image'] }}"
@@ -78,7 +78,14 @@
           </button>
         </div>
         <div class="modal-body">
-          ...
+
+<?php $gambar = '<span class="image"></span>';?>
+
+            <h2><span id="nama"></span></h6>
+                <br>
+            <h6><span id="deskripsi"></span></h6>
+            {{-- <h5> <img src="{{ url('/images/') . $gambar}}" class="card-img-top" alt="..."></h5> --}}
+
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
