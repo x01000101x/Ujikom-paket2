@@ -48,7 +48,11 @@
                   <h5 class="card-title">{{ $data['nama'] }}</h5>
                   <p class="card-text" maxlength="20">{{ $data['deskripsi'] }}</p>
   <!-- Button trigger modal -->
-  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+  <button type="button" id="detail" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"                                 data-id="{{ $data['resepid'] }}"
+  data-id="{{ $data['id'] }}"
+  data-nama="{{ $data['nama'] }}"
+  data-image="{{ $data['image'] }}"
+  data-deskripsi="{{ $data['deskripsi'] }}">
     Baca selanjutnya
   </button>
 
