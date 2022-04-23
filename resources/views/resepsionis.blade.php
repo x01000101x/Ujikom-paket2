@@ -117,7 +117,7 @@
                             <input type="text" name="notelp" value="{{ $data['notelp'] }}" hidden>--}}
 
 
-                            <button class="btn btn-primary" onclick="return confirm('Apakah anda ingin checkin tamu = {{ $data['tamu'] }}?')" name="cekin" type="submit">Cek-in</button>
+                            <button class="btn btn-success" onclick="return confirm('Apakah anda ingin checkin tamu = {{ $data['tamu'] }}?')" name="cekin" type="submit">Cek-in</button>
                             </form>
 
                             <form style ='float: left; padding: 5px;' action="resepsiDelete" method="POST">
@@ -292,16 +292,19 @@
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
             <form style ='float: left;' action="resepsiDelete" method="POST">
                 @csrf
+                @foreach ($datas as $data)
+
                 <input type="text" name="id_resepsi" value="{{ $data['resepid'] }}" hidden>
                 <input type="text" name="avail" value="{{ $data['avail'] }}" hidden>
-                                <input type="number" name="id_kamar" value="{{ $data['id_kamar'] }}" hidden>
+                <input type="number" name="id_kamar" value="{{ $data['id_kamar'] }}" hidden>
 
-            <button class="btn btn-danger" onclick="return confirm('Apakah anda ingin checkin tamu = {{ $data['tamu'] }}?')" name="cekin" type="submit">Cek-out</button>
+                <button class="btn btn-danger" onclick="return confirm('Apakah anda ingin checkin tamu = {{ $data['tamu'] }}?')" name="cekin" type="submit">Cek-out</button>
             </form>
             <form style ='float: right; padding: 5px;' action="resepsiAksi" method="POST">
                 @csrf
                 <input type="text" name="id_resepsi" value="{{ $data['resepid'] }}" hidden>
-            <button class="btn btn-success" onclick="return confirm('Apakah anda ingin checkout tamu = {{ $data['tamu'] }} ?')" name="cekout" type="submit">Cek-in</button>
+                <button class="btn btn-success" onclick="return confirm('Apakah anda ingin checkout tamu = {{ $data['tamu'] }} ?')" name="cekout" type="submit">Cek-in</button>
+                @endforeach
 
             </form>
 

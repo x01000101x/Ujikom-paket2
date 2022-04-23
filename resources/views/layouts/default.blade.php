@@ -34,7 +34,7 @@
         <ul class="navbar-nav mr-auto">
             @if(Auth::user() and Auth::user()->roles == "resepsionis")
             <li class="nav-item {{ request()->routeIs('resepsionis') ? 'active' : ''}}">
-                <a class="nav-link" href="/resepsionis">Resepsionis</a>
+                <a class="nav-link" href="/resepsionis">Reservasionis</a>
             </li>
             @endif
           <li class="nav-item {{ request()->Is('/') || request()->routeIs('abc') || request()->routeIs('pesan') ? 'active' : ''}}">
