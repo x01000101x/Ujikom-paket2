@@ -78,13 +78,32 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
+
         </div>
       </div>
     </div>
   </div>
 </div>
 @endsection
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script>
+    $(document).ready(function(){
+        $(document).on('click', '#detail', function() {
+            var id = $(this).data('id');
+            var nama = $(this).data('nama');
+            var image = $(this).data('image');
+            var deskripsi = $(this).data('deskripsi');
+
+            $('#id').text(id);
+            $('#nama').text(nama);
+            $('#image').text(image);
+            $('#deskripsi').text(deskripsi);
+
+         })
+    });
+</script>
 
 <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
     <picture>
