@@ -60,6 +60,7 @@ Route::get('kamar', [KamarController::class, 'index'])->name('kamar');
 
 Route::middleware(['auth', 'role:resepsionis'])->group(function () {
     Route::get('resepsionis', [ResepsiController::class, 'resepsionisFunc'])->name('resepsionis')->middleware('auth');
+    Route::get('resepsionis2', [ResepsiController::class, 'searchDate'])->name('resepsionis2')->middleware('auth');
     Route::post('resepsiAksi', [ResepsiController::class, 'Aksi'])->name('resepsiAksi')->middleware('auth');
     Route::post('resepsiDelete', [ResepsiController::class, 'Delete'])->name('resepsiDelete')->middleware('auth');
     // Route::get('showResepsi', [ResepsiController::class, 'showreservasi'])->name('resepsishow')->middleware('auth');

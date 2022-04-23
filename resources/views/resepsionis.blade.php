@@ -63,7 +63,7 @@
     </div>
 <div style="float: left">
 
-    <form class="form" method="get" action="resepsionis">
+    <form class="form" method="get" action="resepsionis2">
         <div class="form-group w-20 mb-3">
             <label for="search" class="d-block mr-2">Pencarian</label>
             <input type="date" name="search_date" class="form-control w-75 d-inline" id="search" placeholder="Masukkan tanggal">
