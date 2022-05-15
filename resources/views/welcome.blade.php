@@ -14,6 +14,13 @@
     max-width: 100%;
     height: auto;
 }
+
+.tengah{
+		text-align: center;
+		color: black;
+
+	}
+
 </style>
 
 <div class="starter-template">
@@ -86,8 +93,10 @@
                 </form>
             </div>
             <br>
-            <h1>Tentang Kami</h1>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto tenetur necessitatibus tempore rerum inventore, eaque minus quae nesciunt omnis? Alias iste nobis illum qui iure. Expedita neque fuga sit aut.</p>
+            <div class="tengah">
+                <h1>Tentang Kami</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto tenetur necessitatibus tempore rerum inventore, eaque minus quae nesciunt omnis? Alias iste nobis illum qui iure. Expedita neque fuga sit aut.</p>
+            </div>
 
         </div>
     </div>

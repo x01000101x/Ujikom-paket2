@@ -7,7 +7,8 @@
     <meta name="author" content="">
     {{-- <link rel="icon" href="/docs/4.0/assets/img/favicons/favicon.ico"> --}}
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css
+    ">
 
     <title>Hotel Hebat</title>
 
@@ -119,6 +120,7 @@
 <!-- Footer -->
 
 <script>
+
 //    // Get the container element
 // var btnContainer = document.getElementById("myDIV");
 
@@ -148,7 +150,44 @@
     <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+
+<script>
+    (function () {
+    "use strict";
+
+    var carousels = function () {
+      $(".owl-carousel1").owlCarousel({
+        loop: true,
+        center: true,
+        margin: 0,
+        responsiveClass: true,
+        nav: false,
+        responsive: {
+          0: {
+            items: 1,
+            nav: false
+          },
+          680: {
+            items: 2,
+            nav: false,
+            loop: false
+          },
+          1000: {
+            items: 3,
+            nav: true
+          }
+        }
+      });
+    };
+
+    (function ($) {
+      carousels();
+    })(jQuery);
+  })();
 
 
+
+</script>
   </body>
 </html>
