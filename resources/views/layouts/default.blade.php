@@ -19,7 +19,25 @@
 
     <!-- Custom styles for this template -->
     {{-- <link href="starter-template.css" rel="stylesheet"> --}}
-  </head>
+
+<style>
+    body{
+        /* background-image: url('https://thumbs.gfycat.com/RawMiserableArachnid-size_restricted.gif');
+        background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover; */
+  background-color: #111111;
+    }
+
+    /* .starter-template{
+        background-color:   ;
+    } */
+    p, h1, h2,h3, h4,h5 ,h6, label
+        {
+            color: #DCDCDC;
+        }
+</style>
+</head>
 
   <body>
 
