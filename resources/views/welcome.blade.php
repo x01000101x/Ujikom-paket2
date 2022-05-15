@@ -125,7 +125,42 @@
 .owl-carousel .owl-nav button.owl-next, .owl-carousel .owl-nav button.owl-prev, .owl-carousel button.owl-dot {
   outline: 0;
 }
+/* ends  */
 
+
+/* our partners */
+.section-padding{
+  padding:60px 0;
+}
+.brand-carousel {
+  /* background: #eee; */
+  margin-top: 10%;
+}
+.owl-dots{
+  text-align: center;
+}
+
+.single-logo{
+    width:  200px;
+        height: 100px;
+        object-fit: cover;
+        margin: 0 auto 17px;
+}
+
+/* .owl-dot {
+  display: inline-block;
+  height: 15px !important;
+  width: 15px !important;
+  background-color: #222222 !important;
+  opacity: 0.8;
+  border-radius: 50%;
+  margin: 0 5px;
+}
+
+.owl-dot.active {
+  background-color: #FF170F !important;
+} */
+/* ends  */
 
 </style>
 
@@ -145,10 +180,10 @@
                                         </img>
                                     </div>
                         <div class="carousel-item">
-                                      <source srcset="https://images.unsplash.com/photo-1564501049412-61c2a3083791?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8aG90ZWx8ZW58MHx8MHx8&w=1000&q=80" media="(min-width: 1400px)">
-                                          <source srcset="https://images.unsplash.com/photo-1564501049412-61c2a3083791?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8aG90ZWx8ZW58MHx8MHx8&w=1000&q=80" media="(min-width: 768px)">
-                                          <source srcset="https://images.unsplash.com/photo-1564501049412-61c2a3083791?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8aG90ZWx8ZW58MHx8MHx8&w=1000&q=80" media="(min-width: 576px)">
-                                          <img srcset="https://images.unsplash.com/photo-1564501049412-61c2a3083791?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8aG90ZWx8ZW58MHx8MHx8&w=1000&q=80" alt="responsive image" class="d-block img-fluid">
+                                      <source srcset="https://i.gifer.com/87RC.gif" media="(min-width: 1400px)">
+                                          <source srcset="https://i.gifer.com/87RC.gif" media="(min-width: 768px)">
+                                          <source srcset="https://i.gifer.com/87RC.gif" media="(min-width: 576px)">
+                                          <img srcset="https://i.gifer.com/87RC.gif" alt="responsive image" class="d-block img-fluid">
                                       {{-- <img src="" class="d-block w-100" alt="..."> --}}
                                     </div>
                       <div class="carousel-item">
@@ -176,15 +211,30 @@
 
 
 <div class="cekKamar" style=" padding: 10 10 10 10; border-radius: 1%">
-    <br>
+
     <div class="tengah">
         <h1>Tentang Kami</h1>
+        <video controls autoplay muted>
+            <source src="{{ url('images/hotel_hebat_cinematic.mp4'); }}" type="video/mp4">
+            {{-- <source src="movie.ogg" type="video/ogg"> --}}
+          </video>
+
+        {{-- <video width="400" autoplay>
+
+            Your browser does not support HTML video.
+          </video> --}}
+          <br>
+
+<br>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto tenetur necessitatibus tempore rerum inventore, eaque minus quae nesciunt omnis? Alias iste nobis illum qui iure. Expedita neque fuga sit aut.</p>
     </div>
 <br>
 <br>
 
-    <h1>Cek ketersediaan kamar</h1>
+<hr style="height:2px;border-width:0;color:gold;background-color:gold">
+
+        <h1>Cek ketersediaan kamar</h1>
+
     <br>
     <form action="/pesan" method="post">
         @csrf
@@ -211,6 +261,8 @@
 
 <br>
 <br>
+<hr style="height:2px;border-width:0;color:gold;background-color:gold">
+
                 <h1>Kata Hotel Hebaters?</h1>
                 {{-- <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto tenetur necessitatibus tempore rerum inventore, eaque minus quae nesciunt omnis? Alias iste nobis illum qui iure. Expedita neque fuga sit aut.</p> --}}
 
@@ -262,6 +314,34 @@
     </div>
   </div>
   {{-- end testi  --}}
+  <br>
+  <br>
+  <hr style="height:2px;border-width:0;color:gold;background-color:gold">
+
+                  <h1>Our partners</h1>
+  {{-- carousel --}}
+  <div class="brand-carousel section-padding owl-carousel">
+    <div class="single-logo">
+      <img src="https://fabrikbrands.com/wp-content/uploads/Hotel-Brand-Logos-4-1200x750.png" alt="">
+    </div>
+    <div class="single-logo">
+      <img src="https://images.squarespace-cdn.com/content/v1/5b03379d3917ee9417d28360/1530008410749-2QHJWCM4W5MSV4A70F5H/Four+Seasons+Jakarta.jpg" alt="">
+    </div>
+    <div class="single-logo">
+      <img src="https://searchlogovector.com/wp-content/uploads/2018/11/hotel-indonesia-kempinski-jakarta-logo-vector.png" alt="">
+    </div>
+    <div class="single-logo">
+      <img src="https://i.postimg.cc/t4w94PSN/logo1.png" alt="">
+    </div>
+    <div class="single-logo">
+      <img src="https://i.postimg.cc/t4w94PSN/logo1.png" alt="">
+    </div>
+    <div class="single-logo">
+      <img src="https://i.postimg.cc/t4w94PSN/logo1.png" alt="">
+    </div>
+  </div>
+  {{-- carousel end  --}}
+
 
         </div>
     </div>

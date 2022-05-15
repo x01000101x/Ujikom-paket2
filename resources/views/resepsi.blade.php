@@ -214,7 +214,7 @@ mark {
 
                                     $sum= $diff->format('%R%a'); ?>
 
-                                        <h4 style="background-color: white; color : black;">&nbsp; Total : @currency($data['harga'] * (-$sum))</h4>
+                                        <h4 style="background-color: white; color : black;">&nbsp; Total : @currency(($data['harga'] * $data['avail']) * (-$sum))</h4>
 
                                 </b>
                                 <br>

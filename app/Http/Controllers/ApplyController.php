@@ -41,7 +41,7 @@ class ApplyController extends Controller
 
         $datas = $kamar::join('resepsis', "kamars.id", "resepsis.id_kamar")
             ->where("id_user", $id)->get()->toArray();
-        $resepsi->save();
+        // $resepsi->save();
 
         foreach ($datas as $data) {
 
@@ -61,6 +61,7 @@ class ApplyController extends Controller
         $jumlah = $request->jumlah;
         // dd($summarizer);
 
+        $resepsi->save();
         if ($request->metode == "transfer") {
 
             // dd("hello");
@@ -77,6 +78,11 @@ class ApplyController extends Controller
         // }
 
     }
+
+    // public function monki()
+    // {
+    //     return redirect('/resepsi');
+    // }
 
     public function ipaymu($rooms, $jumlah, $summarizer)
     {
