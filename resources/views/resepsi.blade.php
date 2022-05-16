@@ -228,9 +228,13 @@ mark {
                                     $to = date_create($bou);
                                     $diff = date_diff($to, $from);
 
-                                    $sum= $diff->format('%R%a'); ?>
+                                    $sum= $diff->format('%R%a');
 
-                                        <h4 style="background-color: white; color : black;">&nbsp; Total : @currency(($data['harga'] * $data['avail']) * (-$sum))</h4>
+                                    $summerizer = ($data['harga'] * $data['avail']) * (-$sum);
+ var_dump($data['harga']); var_dump($data['avail']); var_dump($sum);
+                                    ?>
+
+                                        <h4 style="background-color: white; color : black;">&nbsp; Total : @currency($summerizer)</h4>
 
                                 </b>
                                 <br>

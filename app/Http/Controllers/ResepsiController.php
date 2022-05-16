@@ -131,7 +131,7 @@ class ResepsiController extends Controller
     public function check_payment($idku)
     {
         // dd($idku);
-        dd($idku);
+        // dd($idku);
 
         $resepsi = new Resepsi();
 

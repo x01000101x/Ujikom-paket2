@@ -43,6 +43,7 @@ class ApplyController extends Controller
         $datas = $kamar::join('resepsis', "kamars.id", "resepsis.id_kamar")
             ->where("id_user", $id)->get()->toArray();
         // $resepsi->save();
+        $resepsi->save();
 
         foreach ($datas as $data) {
 
@@ -51,17 +52,17 @@ class ApplyController extends Controller
 
             $from = date_create(date($ou));
             $to = date_create($bou);
-            $diff = date_diff($to, $from);
+            $diff = date_diff($from, $to);
 
             $sum = $diff->format('%R%a');
-
-            $summarizer = ($data['harga'] * $data['avail']) * (-$sum);
+            // dd($datas);
+            $summarizer = $data['harga'] * $data['avail'];
         }
-        $resepsi->save();
 
         $rooms = $resepsi->nama;
-        $jumlah = $request->jumlah;
-        $idku = $resepsi->idku;
+        // $jumlah = $request->jumlah;
+        $idku = $data['id'] + 1;
+        // dd($idku);
         // dd($summarizer);
 
         if ($request->metode == "transfer") {
@@ -72,7 +73,7 @@ class ApplyController extends Controller
             //parameter harga berapa harga
 
             // TransferController::ipaymu($rooms, $jumlah, $summarizer);
-            $url = $this->ipaymu($rooms, $jumlah, $summarizer, $idku);
+            $url = $this->ipaymu($rooms, $summarizer, $sum, $idku);
             return redirect($url);
         } else {
             return redirect()->route('resepsi')->with('message', 'Berhasil melakukan booking kamar! silahkan cetak resepsi ini dan serahkan kepada resepsionis untuk check-in');
@@ -86,11 +87,11 @@ class ApplyController extends Controller
     //     return redirect('/resepsi');
     // }
 
-    public function ipaymu($rooms, $jumlah, $summarizer, $idku)
+    public function ipaymu($rooms, $summarizer, $sum, $idku)
     {
 
         $produk = [$rooms];
-        $quantity = [$jumlah];
+        $quantity = [$sum];
         $priceone = [$summarizer];
         // $idku = [$idku];
         $va           = '0000005280044559'; //get on iPaymu dashboard
