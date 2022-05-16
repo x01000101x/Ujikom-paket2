@@ -130,7 +130,18 @@ class ResepsiController extends Controller
 
     public function check_payment()
     {
-        dd($_GET['status']);
+        $id = $_GET['id'];
+
+        $resepsi = new Resepsi();
+
+        if ($_GET['status'] == "successful") {
+            $resepsi::where('id', $id)
+                ->update(['is_paid' => 1]);
+            return redirect()->route('resepsi')->with('message', 'Berhasil Melakukan pembayaran!');
+        } else {
+            echo "Belum lunas";
+            return redirect()->route('resepsi')->with('message', 'Silahkan lunasi pembayaran!');
+        };
     }
 
     // public function search(Request $request)
