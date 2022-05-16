@@ -97,9 +97,9 @@ class ApplyController extends Controller
         $body['product']    = $produk;
         $body['qty']        = $quantity;
         $body['price']      = $priceone;
-        $body['returnUrl']  = url('/resepsi');
+        $body['returnUrl']  = url('/check');
         $body['cancelUrl']  = url('/');
-        $body['notifyUrl']  = url('/resepsi');
+        $body['notifyUrl']  = url('/check');
         $jsonBody     = json_encode($body, JSON_UNESCAPED_SLASHES);
         $requestBody  = strtolower(hash('sha256', $jsonBody));
         $stringToSign = strtoupper($method) . ':' . $va . ':' . $requestBody . ':' . $secret;
