@@ -56,7 +56,7 @@ Route::get('fasilitas', [FasilitasController::class, 'index'])->name('fasilitas'
 
 Route::get('kamar', [KamarController::class, 'index'])->name('kamar');
 
-Route::get('check', [ResepsiController::class, 'check_pembayaran'])->name('check_pembayaran');
+Route::get('check', [ResepsiController::class, 'check_payment'])->name('check_pembayaran');
 
 // Route::get('transfer', [ApplyController::class, 'ipaymu'])->name('transfer');
 
