@@ -54,7 +54,7 @@ class ApplyController extends Controller
 
             $sum = $diff->format('%R%a');
 
-            $summarizer = $data['harga'] * (-$sum);
+            $summarizer = ($data['harga'] * $data['avail']) * (-$sum);
         }
 
         $rooms = $resepsi->nama;
