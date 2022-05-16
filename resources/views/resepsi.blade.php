@@ -193,6 +193,22 @@ mark {
                                         <p>{{ $data['ended'] }}</p>
                                     </div>
                                     <div class="media">
+                                        <label>Tipe Pembayaran</label>
+                                        <p>{{ $data['method'] }}</p>
+                                    </div>
+                                    <div class="media">
+                                        <label>Status</label>
+                                        <p>
+                                        @if($data['is_paid'] == 0)
+                                           {{ "BELUM LUNAS"}}
+                                        @else
+                                        {{
+                                            "LUNAS"
+                                         }}
+                                         @endif
+                                        </p>
+                                    </div>
+                                    <div class="media">
 
                                     </div>
                                     <div class="media">
