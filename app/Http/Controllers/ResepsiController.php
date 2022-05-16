@@ -128,6 +128,11 @@ class ResepsiController extends Controller
         return view('resepsionis', compact('shows'));
     }
 
+    public function check_payment()
+    {
+        dd($_GET['status']);
+    }
+
     // public function search(Request $request)
     // {
     //     $resepsi = new Resepsi();
