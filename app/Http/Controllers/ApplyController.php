@@ -19,6 +19,7 @@ class ApplyController extends Controller
 
         $joinan = $kamar::select('avail')->where("id", $request->kamar)->get()->toArray();
 
+        // $resepsi->id = $request->id;
         $resepsi->id_user = $id;
         $resepsi->booked = $request->date1;
         $resepsi->ended = $request->date2;
@@ -56,12 +57,13 @@ class ApplyController extends Controller
 
             $summarizer = ($data['harga'] * $data['avail']) * (-$sum);
         }
+        $resepsi->save();
 
         $rooms = $resepsi->nama;
         $jumlah = $request->jumlah;
+        $idku = $resepsi->idku;
         // dd($summarizer);
 
-        $resepsi->save();
         if ($request->metode == "transfer") {
 
             // dd("hello");
@@ -70,7 +72,7 @@ class ApplyController extends Controller
             //parameter harga berapa harga
 
             // TransferController::ipaymu($rooms, $jumlah, $summarizer);
-            $url = $this->ipaymu($rooms, $jumlah, $summarizer);
+            $url = $this->ipaymu($rooms, $jumlah, $summarizer, $idku);
             return redirect($url);
         } else {
             return redirect()->route('resepsi')->with('message', 'Berhasil melakukan booking kamar! silahkan cetak resepsi ini dan serahkan kepada resepsionis untuk check-in');
@@ -84,22 +86,24 @@ class ApplyController extends Controller
     //     return redirect('/resepsi');
     // }
 
-    public function ipaymu($rooms, $jumlah, $summarizer)
+    public function ipaymu($rooms, $jumlah, $summarizer, $idku)
     {
 
         $produk = [$rooms];
         $quantity = [$jumlah];
         $priceone = [$summarizer];
+        // $idku = [$idku];
         $va           = '0000005280044559'; //get on iPaymu dashboard
         $secret       = 'SANDBOX147E6A77-C26A-4742-8A2D-67595CD57CA3-20220420220537'; //get on iPaymu dashboard
         $url          = 'https://sandbox.ipaymu.com/api/v2/payment'; //url
         $method       = 'POST'; //method
+        // $body['idku'] = $idku;
         $body['product']    = $produk;
         $body['qty']        = $quantity;
         $body['price']      = $priceone;
-        $body['returnUrl']  = url('/check');
+        $body['returnUrl']  = route('check_pembayaran', ['idku' => $idku]);
         $body['cancelUrl']  = url('/');
-        $body['notifyUrl']  = url('/check');
+        $body['notifyUrl']  = route('check_pembayaran', ['idku' => $idku]);
         $jsonBody     = json_encode($body, JSON_UNESCAPED_SLASHES);
         $requestBody  = strtolower(hash('sha256', $jsonBody));
         $stringToSign = strtoupper($method) . ':' . $va . ':' . $requestBody . ':' . $secret;
