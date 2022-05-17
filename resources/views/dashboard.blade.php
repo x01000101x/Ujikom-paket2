@@ -25,7 +25,7 @@
     /* Testimonial */
 
     body {
-  background: white;
+  /* background: white; */
 }
 
 .gtco-testimonials {

@@ -9,6 +9,9 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css
     ">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+
+
 
     <title>Hotel Hebat</title>
 
@@ -21,6 +24,97 @@
     {{-- <link href="starter-template.css" rel="stylesheet"> --}}
 
 <style>
+
+.footer-dark {
+  padding:50px 0;
+  color:#f0f9ff;
+  background-color:#282d32;
+}
+
+.footer-dark h3 {
+  margin-top:0;
+  margin-bottom:12px;
+  font-weight:bold;
+  font-size:16px;
+}
+
+.footer-dark ul {
+  padding:0;
+  list-style:none;
+  line-height:1.6;
+  font-size:14px;
+  margin-bottom:0;
+}
+
+.footer-dark ul a {
+  color:inherit;
+  text-decoration:none;
+  opacity:0.6;
+}
+
+.footer-dark ul a:hover {
+  opacity:0.8;
+}
+
+@media (max-width:767px) {
+  .footer-dark .item:not(.social) {
+    text-align:center;
+    padding-bottom:20px;
+  }
+}
+
+.footer-dark .item.text {
+  margin-bottom:36px;
+}
+
+@media (max-width:767px) {
+  .footer-dark .item.text {
+    margin-bottom:0;
+  }
+}
+
+.footer-dark .item.text p {
+  opacity:0.6;
+  margin-bottom:0;
+}
+
+.footer-dark .item.social {
+  text-align:center;
+}
+
+@media (max-width:991px) {
+  .footer-dark .item.social {
+    text-align:center;
+    margin-top:20px;
+  }
+}
+
+.footer-dark .item.social > a {
+  font-size:20px;
+  width:36px;
+  height:36px;
+  line-height:36px;
+  display:inline-block;
+  text-align:center;
+  border-radius:50%;
+  box-shadow:0 0 0 1px rgba(255,255,255,0.4);
+  margin:0 8px;
+  color:#fff;
+  opacity:0.75;
+}
+
+.footer-dark .item.social > a:hover {
+  opacity:0.9;
+}
+
+.footer-dark .copyright {
+  text-align:center;
+  padding-top:24px;
+  opacity:0.3;
+  font-size:13px;
+  margin-bottom:0;
+}
+
     body{
         /* background-image: url('https://thumbs.gfycat.com/RawMiserableArachnid-size_restricted.gif');
         background-repeat: no-repeat;
@@ -127,15 +221,46 @@
 
 </main><!-- /.container -->
 <br><br>
-<footer style="background-color: grey" class="footer">
-    <!-- Copyright -->
-    <div class="footer-copyright text-center py-3">© 2022 Copyright:
-        <a href="#"> DAMANIK CORP</a>
-    </div>
-    <!-- Copyright -->
+<div class="footer-dark">
+        <footer>
+            <div class="container">
+                <div class="row">
+                  <div class="col-sm-6 col-md-3 item">
+                    <h3>Our Company</h3>
+                    <li>
+                      <ul>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto fugiat neque laboriosam quaerat eveniet aspernatur. Ratione dolore expedita, doloribus mollitia, odit dolorem sit aperiam esse, sapiente repellendus quasi illum aliquam.
 
-</footer>
-<!-- Footer -->
+                      </ul>
+                    </li>
+                  </div>
+                    <div class="col-sm-6 col-md-3 item">
+                        <h3>About</h3>
+                        <ul>
+                            <li><a href="#">Email : hotel@gmail.com</a></li>
+                            <li><a href="#">Tel : 1234567</a></li>
+                            <li><a href="#">Loc : adab</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6 item text">
+                      <h3>OUR LOCATION </h3>
+                      <div class="media" style="height: auto; max-width: 100%;>
+                                      <div class="mapouter">
+                                          <div class="gmap_canvas"><iframe width="600" height="500" id="gmap_canvas" src="https://maps.google.com/maps?q=pakuan%20hill%20cluster%20livistona&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+                                          {{-- <a href="https://123movies-to.org">123 movies</a> --}}
+                                          <br>
+                                          <style>.mapouter{position:relative;text-align:left;height:300px;width:600px;}</style>
+                                          <a href="https://www.embedgooglemap.net">google maps widget html</a>
+                                          <style>.gmap_canvas {overflow:hidden;background:none!important;height:300px;width:600px;}</style>
+                                          </div>
+                                          </div>
+                      </div>	<!-- End Of /.media -->
+                    </div>
+                    <div class="col item social"><a href="#"><i class="icon ion-social-facebook"></i></a><a href="#"><i class="icon ion-social-twitter"></i></a><a href="#"><i class="icon ion-social-snapchat"></i></a><a href="#"><i class="icon ion-social-instagram"></i></a></div>
+                </div>
+                <p class="copyright">DAMANIK CORP © 2022</p>
+            </div>
+        </footer>
 
 <script>
 
