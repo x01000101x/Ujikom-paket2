@@ -13,6 +13,10 @@
     max-width: 100%;
     height: auto;
 }
+
+.card-title, h2, h3, h4, p{
+    color: black;
+}
 </style>
 
 <div class="starter-template">

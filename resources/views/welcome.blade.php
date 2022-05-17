@@ -214,7 +214,8 @@
 
     <div class="tengah">
         <h1>Tentang Kami</h1>
-        <video controls autoplay muted>
+        <video style="height: auto; max-width: 100%;
+        " controls autoplay muted>
             <source src="{{ url('images/hotel_hebat_cinematic.mp4'); }}" type="video/mp4">
             {{-- <source src="movie.ogg" type="video/ogg"> --}}
           </video>

@@ -14,11 +14,21 @@
     height: auto;
 }
 
+.gararambar{
+    max-width: 100%;
+    height: 50%;
+}
+
     p {
      width: 250px;
      white-space: nowrap;
      overflow: hidden;
      text-overflow: ellipsis;
+     color: black;
+}
+
+h2, h5, h6{
+    color: black;
 }
 </style>
 
@@ -43,7 +53,7 @@
         @foreach ( $datas as $data )
         <div class="col mb-4">
           <div style="height: 100%" class="card">
-              <img src="{{ url('/images/'.$data['image']) }}" class="card-img-top" alt="...">
+              <img class="gararambar" src="{{ url('/images/'.$data['image']) }}" class="card-img-top" alt="...">
               <div class="card-body">
                   <h5 class="card-title">{{ $data['nama'] }}</h5>
                   <p class="card-text" maxlength="20">{{ $data['deskripsi'] }}</p>
@@ -72,7 +82,7 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <h5 class="modal-title" id="exampleModalLabel">Fasilitas Hotel Hebat</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>

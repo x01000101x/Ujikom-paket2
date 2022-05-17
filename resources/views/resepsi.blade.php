@@ -231,7 +231,7 @@ mark {
                                     $sum= $diff->format('%R%a');
 
                                     $summerizer = ($data['harga'] * $data['avail']) * (-$sum);
- var_dump($data['harga']); var_dump($data['avail']); var_dump($sum);
+//  var_dump($data['harga']); var_dump($data['avail']); var_dump($sum);
                                     ?>
 
                                         <h4 style="background-color: white; color : black;">&nbsp; Total : @currency($summerizer)</h4>
