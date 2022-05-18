@@ -145,7 +145,11 @@
 
                                 $sum= $diff->format('%R%a');
 
+                                // dd($data);
+                                $najus = ($data['harga'] * $data['tersedia']) * (-$sum);
                                 ?>
+
+
 
                                 <button type="button" id="detail" class="btn btn-warning" data-toggle="modal" data-target="#exampleModal"
                                 data-id="{{ $data['resepid'] }}"
@@ -156,7 +160,7 @@
                                 data-email="{{ $data['email'] }}"
                                 data-tamu="{{ $data['tamu'] }}"
                                 data-tersedia="{{ $data['tersedia'] }}"
-                                data-harga="@currency($data['harga'] * (-$sum))"
+                                data-harga="@currency($najus)"
                                 data-booked="{{ $data['booked'] }}">
                                     Lihat
                                 </button>
