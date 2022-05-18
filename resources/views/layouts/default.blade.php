@@ -226,13 +226,14 @@
             <div class="container">
                 <div class="row">
                   <div class="col-sm-6 col-md-3 item">
-                    <h3>Our Company</h3>
-                    <li>
-                      <ul>
+                    <h3 style="color: white">Our Company</h3>
+                    <p>
+
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto fugiat neque laboriosam quaerat eveniet aspernatur. Ratione dolore expedita, doloribus mollitia, odit dolorem sit aperiam esse, sapiente repellendus quasi illum aliquam.
 
-                      </ul>
-                    </li>
+                    </p>
+
+
                   </div>
                     <div class="col-sm-6 col-md-3 item">
                         <h3>About</h3>

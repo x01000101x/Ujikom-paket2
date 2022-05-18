@@ -25,9 +25,11 @@ picture{
     <br>
 
                   <main role="main" class="container">
-    <br>
 
-    <br>
+                      <br>
+
+                      <h1>Cek ketersediaan kamar</h1>
+                      <br>
 
               <form action="/pesan" method="GET">
 @csrf
@@ -60,15 +62,26 @@ picture{
 
             <div class="cekKamar" style= "padding: 10 10 10 10; border-radius: 1%">
 
-
             <p>Kamar tersedia, silahkan <a href="/register">register</a> atau <a href="/login">login</a> untuk memesan : </p>
-            <ul>
-                @foreach ($data as $kamar)
 
-                    <li>{{ $kamar->tipe }} : {{ $kamar->avail }}</li>
+                <div class="row row-cols-1 row-cols-md-2">
+                @foreach ($data as $kamar)
+                    <div class="col mb-4">
+                      <div class="card">
+                        <img style="max-width: 100%;
+                        height: 50%;" src="{{ url('/images/'.$kamar->image) }}" class="card-img-top" alt="...">
+                        <div class="card-body">
+                          <h5 style="color: black" class="card-title">{{ $kamar->tipe }}</h5>
+                          <p style="color: black" class="card-text">Tersedia : {{ $kamar->avail }} kamar</p>
+                          <a class="btn btn-warning" href="/kamar">Pelajari lebih lanjut</a>
+                        </div>
+                      </div>
+                    </div>
+
+                    {{-- <li>{{ $kamar->tipe }} : {{ $kamar->avail }}</li> --}}
 
                     @endforeach
-                </ul>
+
                             </div>
                 @else
                 <h2 style="background-color: lime">Kamar tersedia!</h2>

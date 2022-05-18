@@ -29,7 +29,7 @@ class BookController extends Controller
 
         date_default_timezone_set('Asia/Jakarta');
 
-        $data = DB::table('kamars')->select('id', 'tipe', 'avail', 'harga')->get();
+        $data = DB::table('kamars')->select('id', 'image', 'tipe', 'avail', 'harga')->get();
 
         $date1 = $request->date1;
         $date2 = $request->date2;
