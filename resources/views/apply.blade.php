@@ -27,6 +27,7 @@ picture{
                   <main role="main" class="container">
 
                       <br>
+                      <hr style="height:2px;border-width:0;color:gold;background-color:gold">
 
                       <h1>Cek ketersediaan kamar</h1>
                       <br>
@@ -83,16 +84,33 @@ picture{
                     @endforeach
 
                             </div>
-                @else
-                <h2 style="background-color: lime">Kamar tersedia!</h2>
+                            @else
+                            <hr style="height:2px;border-width:0;color:gold;background-color:gold">
+
+                <h2 style="color:white;">Kamar tersedia!</h2>
                 <p>Tipe kamar yang tersedia :</p>
-                @foreach ($data as $kamar)
 
+                <div class="row row-cols-1 row-cols-md-2">
+                    @foreach ($data as $kamar)
+                        <div class="col mb-4">
+                          <div class="card">
+                            <img style="max-width: 100%;
+                            height: 50%;" src="{{ url('/images/'.$kamar->image) }}" class="card-img-top" alt="...">
+                            <div class="card-body">
+                              <h5 style="color: black" class="card-title">{{ $kamar->tipe }}</h5>
+                              <p style="color: black" class="card-text">Tersedia : {{ $kamar->avail }} kamar</p>
+                              <a class="btn btn-warning" href="/kamar">Pelajari lebih lanjut</a>
+                            </div>
+                          </div>
+                        </div>
 
-                <li>{{ $kamar->tipe }} : {{ $kamar->avail }} kamar (@currency($kamar->harga)/malam)</li>
+                        {{-- <li>{{ $kamar->tipe }} : {{ $kamar->avail }}</li> --}}
 
-                @endforeach
+                        @endforeach
+                </div>
                 <br>
+<hr style="height:2px;border-width:0;color:gold;background-color:gold">
+
                     <h1>Pesan</h1>
                     <form action="/apply" method="POST">
                 @csrf
