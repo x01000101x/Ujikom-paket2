@@ -143,9 +143,9 @@ mark {
                 <div style="background-color: black" class="row align-items-center flex-row-reverse">
                     <div class="col-lg-6">
                         <div class="about-text go-to">
-                            <h3 class="dark-color">Resepsi #{{ $data['id'] }}</h3>
+                            <h3 class="dark-color">Reservasi #{{ $data['id'] }}</h3>
                             <h6 class="theme-color lead">A/n {{ $data['nama'] }}</h6>
-                            <p></p>
+
                             <div class="row about-list">
                                 <div class="col-md-6">
                                     <div class="media">
@@ -183,15 +183,21 @@ mark {
                                         <p>{{ $data['ended'] }}</p>
                                     </div>
                                     <div class="media">
-
+                                        <label>Pembayaran</label>
+                                        <p>{{ $data['method'] }} /
+                                            @if($data['is_paid'] == 0)
+                                               {{ "BELUM LUNAS"}}
+                                            @else
+                                            {{
+                                                "LUNAS"
+                                             }}
+                                             @endif
+                                            </p>
                                     </div>
+
                                     <div class="media">
 
-                                    </div> <div class="media">
-
                                     </div>
-
-
                                 </div>
                                 <b>
 
@@ -203,9 +209,13 @@ mark {
                                     $to = date_create($bou);
                                     $diff = date_diff($to, $from);
 
-                                    $sum= $diff->format('%R%a'); ?>
+                                    $sum= $diff->format('%R%a');
+                                    $summerizer = ($data['harga'] * $data['avail']) * (-$sum);
+                                    ?>
 
-                                        <h4 style="background-color: white; color : black;">&nbsp; Total : @currency($data['harga'] * (-$sum))</h4>
+
+
+                                        <h4 style="background-color: white; color : black;">&nbsp; Total : @currency($summerizer)</h4>
 
 
                                 </b>
