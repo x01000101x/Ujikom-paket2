@@ -10,7 +10,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Resepsi</title>
+    <title>RESERVASI</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <style>
     body{
@@ -153,7 +153,7 @@ mark {
             <div style="background-color: black" class="row align-items-center flex-row-reverse">
                     <div class="col-lg-6">
                         <div class="about-text go-to">
-                            <h3 class="dark-color">Resepsi #{{ $data['id'] }}</h3>
+                            <h3 class="dark-color">Reservasi #{{ $data['id'] }}</h3>
                             <h6 class="theme-color lead">A/n {{ $data['nama'] }}</h6>
                             <p></p>
                             <div class="row about-list">
@@ -255,7 +255,7 @@ mark {
             <br>
             <div class="container p-0">
                 <form action="/unduh" method="get">
-                    <button class="btn btn-primary" type="submit" name="unduh">DOWNLOAD RESEPSI</button>
+                    <button class="btn btn-primary" type="submit" name="unduh">DOWNLOAD RESERVASI</button>
                 </form>
                 <div>
             </section>
