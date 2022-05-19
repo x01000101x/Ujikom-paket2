@@ -10,6 +10,9 @@ use Encore\Admin\Grid\Filter\Where;
 
 class ResepsiController extends Controller
 {
+
+    //  READ
+
     public function show()
     {
         $id = auth()->id();
@@ -20,7 +23,6 @@ class ResepsiController extends Controller
         $datas = $kamar::join('resepsis', "kamars.id", "resepsis.id_kamar")
             ->where("id_user", $id)->get()->toArray();
 
-        // dd($datas);
 
         return view('resepsi', compact('datas'));
     }
@@ -50,7 +52,7 @@ class ResepsiController extends Controller
         // $date = new DateTime($keyword2);
         // dd($date);
 
-        $datas = $resepsi::join('kamars', 'kamars.id', 'resepsis.id_kamar')->select('resepsis.id as resepid', 'kamars.id as kamarid', 'resepsis.avail as tersedia', 'resepsis.*', 'kamars.*')->orderBy('resepsis.is_checked', 'asc')->where('resepsis.tamu', 'like', "%" . $keyword . "%")->where('resepsis.booked', 'like', "%" . $date . "%")->where('resepsis.ended', 'like', "%" . $date . "%")->paginate(5);
+        $datas = $resepsi::join('kamars', 'kamars.id', 'resepsis.id_kamar')->select('resepsis.id as resepid', 'kamars.id as kamarid', 'resepsis.avail as tersedia', 'resepsis.*', 'kamars.*')->orderBy('resepsis.is_checked', 'asc')->where('resepsis.tamu', 'like', "%" . $keyword . "%")->orWhere('resepsis.id', 'like', "%" . $keyword . "%")->where('resepsis.booked', 'like', "%" . $date . "%")->where('resepsis.ended', 'like', "%" . $date . "%")->paginate(5);
 
 
         return view('resepsionis', compact('datas'))->with('i', (request()->input('page', 1) - 1) * 5);
@@ -81,12 +83,14 @@ class ResepsiController extends Controller
         // $date = new DateTime($keyword2);
         // dd($date);
 
-        $datas = $resepsi::join('kamars', 'kamars.id', 'resepsis.id_kamar')->select('resepsis.id as resepid', 'kamars.id as kamarid', 'resepsis.avail as tersedia', 'resepsis.*', 'kamars.*')->orderBy('resepsis.is_checked', 'asc')->where('resepsis.booked', 'like', "%" . $date . "%")->where('resepsis.ended', 'like', "%" . $date . "%")->paginate(5);
+        $datas = $resepsi::join('kamars', 'kamars.id', 'resepsis.id_kamar')->select('resepsis.id as resepid', 'kamars.id as kamarid', 'resepsis.avail as tersedia', 'resepsis.*', 'kamars.*')->orderBy('resepsis.is_checked', 'asc')->where('resepsis.booked', 'like', "%" . $date . "%")->orWhere('resepsis.ended', 'like', "%" . $date . "%")->paginate(5);
 
 
         return view('resepsionis', compact('datas'))->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
+
+    //UPDATE
     public function Aksi(Request $request)
     {
         $resepsi = new Resepsi();
@@ -98,6 +102,7 @@ class ResepsiController extends Controller
         return redirect()->route('resepsionis')->with('message', 'Berhasil Cek-in!');
     }
 
+    //DELETE
     public function Delete(Request $request)
     {
         $resepsi = new Resepsi();
@@ -116,6 +121,7 @@ class ResepsiController extends Controller
         return redirect()->route('resepsionis')->with('message', 'Berhasil Cek-out!');
     }
 
+    //READ
     public function showreservasi(Request $request)
     {
         $resepsi = new Resepsi();

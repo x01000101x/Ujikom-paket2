@@ -48,7 +48,9 @@
     <p class="card-text"><small class="text-muted">Saat ini tersedia : {{ $data['avail'] }} kamar</small></p>
   </div>
 </div>
-
+<?php
+// dd($data);
+?>
 @endforeach
 
 @endsection

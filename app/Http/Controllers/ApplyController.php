@@ -7,6 +7,7 @@ use App\Models\Resepsi;
 use Illuminate\Http\Request;
 use App\Http\Controllers\TransferController;
 
+//CREATE
 class ApplyController extends Controller
 {
     public function add(Request $request)

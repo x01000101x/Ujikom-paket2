@@ -79,6 +79,7 @@
             <thead>
                 <tr>
                   <th scope="col">#</th>
+                  <th scope="col">No. Reserv</th>
                   <th scope="col">Nama Tamu</th>
                   <th scope="col">Tanggal Cek-in (Y-M-D)</th>
                   <th scope="col">Tanggal Cek-out (Y-M-D)</th>
@@ -101,6 +102,7 @@
         <th scope="row">
             {{ $i; }}
         </th>
+        <td>{{ "Reservasi#" . $data['resepid'] }}</td>
         <td>{{ $data['tamu'] }}</td>
         <td>{{ $data['booked'] }}</td>
                       <td>{{ $data['ended'] }}</td>
