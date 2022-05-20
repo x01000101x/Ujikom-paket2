@@ -52,7 +52,7 @@ Route::post('logout', [AnyController::class, 'logout'])->name('logout')->middlew
 
 //PDF Downloads
 Route::get('unduh',  [PdfController::class, 'download'])->name('download')->middleware('auth');
-Route::get('report',  [PdfController::class, 'download2'])->name('download')->middleware('auth');
+Route::get('report',  [PdfController::class, 'download_log'])->name('download2')->middleware('auth');
 
 
 Route::get('fasilitas', [FasilitasController::class, 'index'])->name('fasilitas');

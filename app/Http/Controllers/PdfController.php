@@ -28,8 +28,11 @@ class PdfController extends Controller
     public function download_log()
     {
         $log = new Resepsi_log();
+        $kamar = new Kamar();
 
-        $datas = $log::select('*')->get()->toArray();
+
+        $datas = $kamar::join('resepsis', "kamars.id", "resepsis.id_kamar")
+            ->get()->toArray();
 
         $pdf = PDF::loadView('report', compact('datas'));
 

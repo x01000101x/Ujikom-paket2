@@ -70,6 +70,11 @@
             <button type="submit" class="btn btn-primary mb-1">Cari</button>
         </div>
     </form>
+    <form class="form" method="get" action="/report">
+        <div class="form-group w-20 mb-3">
+            <button type="submit" name="download" class="btn btn-primary mb-1">Print</button>
+        </div>
+    </form>
     <a style="float: left" href="resepsionis" type="submit" class="btn btn-warning mb-1">Refresh</a>
 </div>
     {{-- end search --}}

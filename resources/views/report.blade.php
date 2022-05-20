@@ -136,17 +136,46 @@ mark {
 
 </head>
 <body>
-    @foreach ($datas as $data)
+
 
 <section class="section about-section gray-bg" id="about">
-            <div class="container">
+    <div class="container">
                 <div style="background-color: black" class="row align-items-center flex-row-reverse">
                     <div class="col-lg-6">
                         <div class="about-text go-to">
-                            <h3 class="dark-color">Reservasi #{{ $data['id'] }}</h3>
-                            <h6 class="theme-color lead">A/n {{ $data['nama'] }}</h6>
+                            <h3 class="dark-color">Report Data Pengunjung Yang sudah check-out</h3>
+                            {{-- <h6 class="theme-color lead">A/n {{ $data['nama'] }}</h6> --}}
+                            <table border="10px white">
+                                <thead>
+                                    <tr>
+                                        <th>Tamu</th>
+                                        <th>Total Kamar</th>
+                                        <th>Nominal</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach ($datas as $data)
+                                    <tr>
+                                       <?php
+                                       $ou = $data['booked'];
+                                       $bou = $data['ended'];
 
-                            <div class="row about-list">
+                                       $from = date_create(date($ou));
+                                       $to = date_create($bou);
+                                       $diff = date_diff($to, $from);
+
+                                       $sum= $diff->format('%R%a');
+                                       $summerizer = ($data['harga'] * $data['avail']) * (-$sum);
+                                       ?>
+                                     <td>{{ $data['tamu'] }}</td>
+                                     <td>{{ $data['avail'] }}</td>
+                                     <td>Total : @currency($summerizer)</td>
+                                    </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+
+                            {{-- <div class="row about-list">
                                 <div class="col-md-6">
                                     <div class="media">
                                         <label>Tamu</label>
@@ -193,7 +222,7 @@ mark {
                                              }}
                                              @endif
                                             </p>
-                                    </div>
+                                    </div> --}}
 
                                     <div class="media">
 
@@ -201,21 +230,11 @@ mark {
                                 </div>
                                 <b>
 
-                                    <?php
-                                    $ou = $data['booked'];
-                                    $bou = $data['ended'];
-
-                                    $from = date_create(date($ou));
-                                    $to = date_create($bou);
-                                    $diff = date_diff($to, $from);
-
-                                    $sum= $diff->format('%R%a');
-                                    $summerizer = ($data['harga'] * $data['avail']) * (-$sum);
-                                    ?>
 
 
 
-                                        <h4 style="background-color: white; color : black;">&nbsp; Total : @currency($summerizer)</h4>
+
+                                        {{-- <h4 style="background-color: white; color : black;">&nbsp; Total : @currency($summerizer)</h4> --}}
 
 
                                 </b>
@@ -236,6 +255,6 @@ mark {
 
 
 
-        @endforeach
+
 
 
