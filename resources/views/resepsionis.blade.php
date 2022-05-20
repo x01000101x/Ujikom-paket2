@@ -83,6 +83,7 @@
                   <th scope="col">Nama Tamu</th>
                   <th scope="col">Tanggal Cek-in (Y-M-D)</th>
                   <th scope="col">Tanggal Cek-out (Y-M-D)</th>
+                  <th scope="col">Informasi</th>
                   <th scope="col">Aksi</th>
 
                 </tr>
@@ -106,6 +107,13 @@
         <td>{{ $data['tamu'] }}</td>
         <td>{{ $data['booked'] }}</td>
                       <td>{{ $data['ended'] }}</td>
+                      <td>@if($data['method'] == "transfer" && $data['is_paid'] == 0)
+                        <p style="color: red"> Transfer / Belum Lunas</p>
+                        @elseif ($data['method'] == "transfer" && $data['is_paid'] ==  1)
+                        <p style="color: green">Transfer / Lunas</p>
+                        @else
+                        {{ $data['method'] }}
+                                @endif</td>
                       <td>
                           <form style ='float: left; padding: 5px;' action="resepsiAksi" method="POST">
                             @csrf
@@ -180,7 +188,10 @@
               </tbody>
             </table>
 
-            *Jumlah Reservasi : {{ $datas->total() }} <br/>
+            <p style="color: white">
+                *Jumlah Reservasi : {{ $datas->total() }} <br/>
+
+            </p>
 
             {{ $datas->links() }}
       </div>
@@ -306,14 +317,14 @@
 
                 @endforeach
 
-                <button class="btn btn-danger" onclick="return confirm('Apakah anda ingin checkin tamu?')" name="cekin" type="submit">Cek-out</button>
+                <button class="btn btn-danger" onclick="return confirm('Apakah anda ingin cek-out tamu?')" name="cekin" type="submit">Cek-out</button>
             </form>
             <form style ='float: right; padding: 5px;' action="resepsiAksi" method="POST">
                 @csrf
                 @foreach ($datas as $data)
                 <input type="text" name="id_resepsi" value="{{ $data['resepid'] }}" hidden>
                 @endforeach
-                <button class="btn btn-success" onclick="return confirm('Apakah anda ingin checkout tamu?')" name="cekout" type="submit">Cek-in</button>
+                <button class="btn btn-success" onclick="return confirm('Apakah anda ingin cek-in tamu?')" name="cekout" type="submit">Cek-in</button>
 
             </form>
 

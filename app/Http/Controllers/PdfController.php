@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Resepsi;
 use App\Models\Kamar;
+use App\Models\Resepsi_log;
 use Barryvdh\DomPDF\Facade as PDF;
 
 class PdfController extends Controller
@@ -21,6 +22,17 @@ class PdfController extends Controller
 
         $pdf = PDF::loadView('unduh', compact('datas'));
 
-        return $pdf->download('resepsi-hotel-hebat.pdf');
+        return $pdf->download('reservasi-hotel-hebat.pdf');
+    }
+
+    public function download_log()
+    {
+        $log = new Resepsi_log();
+
+        $datas = $log::select('*')->get()->toArray();
+
+        $pdf = PDF::loadView('report', compact('datas'));
+
+        return $pdf->download('report-' . date('F') . '-' . date('d'));
     }
 }

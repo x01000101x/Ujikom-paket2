@@ -50,7 +50,10 @@ Route::get('resepsi', [ResepsiController::class, 'show'])->name('resepsi')->midd
 
 Route::post('logout', [AnyController::class, 'logout'])->name('logout')->middleware('auth');
 
+//PDF Downloads
 Route::get('unduh',  [PdfController::class, 'download'])->name('download')->middleware('auth');
+Route::get('report',  [PdfController::class, 'download2'])->name('download')->middleware('auth');
+
 
 Route::get('fasilitas', [FasilitasController::class, 'index'])->name('fasilitas');
 
