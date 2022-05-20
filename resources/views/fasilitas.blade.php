@@ -66,16 +66,16 @@ h2, h5, h6{
     Baca selanjutnya
   </button>
 
-                </div>
-            </div>
-        </div>
-        @endforeach
-      </div>
+</div>
+</div>
+</div>
+@endforeach
+</div>
 
-      {{-- end --}}
+{{-- end --}}
 
-        </div>
-    </div>
+</div>
+</div>
 
   <!-- Modal -->
   <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

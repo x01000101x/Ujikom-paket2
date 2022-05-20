@@ -231,7 +231,6 @@
                   <div class="col-sm-6 col-md-3 item">
                     <h3 style="color: white">Our Company</h3>
                     <p>
-                        ka
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto fugiat neque laboriosam quaerat eveniet aspernatur. Ratione dolore expedita, doloribus mollitia, odit dolorem sit aperiam esse, sapiente repellendus quasi illum aliquam.
 
                     </p>
@@ -242,8 +241,8 @@
                         <h3>About</h3>
                         <ul>
                             <li><a href="#">Email : hotel@gmail.com</a></li>
-                            <li><a href="#">Tel : 1234567</a></li>
-                            <li><a href="#">Loc : adab</a></li>
+                            <li><a href="#">Telp. : +62 862-8827-039</a></li>
+                            <li><a href="#">Lokasi : Pakuan Hill</a></li>
                         </ul>
                     </div>
                     <div class="col-md-6 item text">

@@ -130,7 +130,7 @@
 
 /* our partners */
 .section-padding{
-  padding:60px 0;
+  padding:20px 0;
 }
 .brand-carousel {
   /* background: #eee; */
@@ -141,10 +141,10 @@
 }
 
 .single-logo{
-    width:  200px;
-        height: 100px;
+    width:  150px;
+        height: 150px;
         object-fit: cover;
-        margin: 0 auto 17px;
+        /* margin: 0 auto 17px; */
 }
 
 /* .owl-dot {
@@ -323,7 +323,7 @@
   {{-- carousel --}}
   <div class="brand-carousel section-padding owl-carousel">
     <div class="single-logo">
-      <img src="https://fabrikbrands.com/wp-content/uploads/Hotel-Brand-Logos-4-1200x750.png" alt="">
+      <img src="https://ds393qgzrxwzn.cloudfront.net/resize/m500x500/cat1/img/images/0/mtdNkYhbuZ.jpg" alt="">
     </div>
     <div class="single-logo">
       <img src="https://images.squarespace-cdn.com/content/v1/5b03379d3917ee9417d28360/1530008410749-2QHJWCM4W5MSV4A70F5H/Four+Seasons+Jakarta.jpg" alt="">
@@ -332,10 +332,10 @@
       <img src="https://searchlogovector.com/wp-content/uploads/2018/11/hotel-indonesia-kempinski-jakarta-logo-vector.png" alt="">
     </div>
     <div class="single-logo">
-      <img src="https://i.postimg.cc/t4w94PSN/logo1.png" alt="">
+      <img src="https://blog.logomyway.com/wp-content/uploads/2017/01/mcdonalds-logo-1.jpg" alt="">
     </div>
     <div class="single-logo">
-      <img src="https://i.postimg.cc/t4w94PSN/logo1.png" alt="">
+      <img src="https://seekvectorlogo.com/wp-content/uploads/2017/12/the-ritz-carlton-vector-logo.png" alt="">
     </div>
     <div class="single-logo">
       <img src="https://i.postimg.cc/t4w94PSN/logo1.png" alt="">

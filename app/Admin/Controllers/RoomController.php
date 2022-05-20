@@ -76,8 +76,8 @@ class RoomController extends AdminController
         $form->number('harga', __('Harga'));
         $form->number('diskon', __('Diskon'));
         $form->textarea('deskripsi', __('Deskripsi'));
-        // $form->image('image')->uniqueName();
-        $form->image('image')->thumbnail('small', $width = 300, $height = 300)->uniqueName();
+        $form->image('image')->uniqueName();
+        // $form->image('image')->thumbnail('small', $width = 300, $height = 300)->uniqueName();
 
 
         return $form;

@@ -126,7 +126,7 @@
                                 @csrf
                                 {{-- {{ ($data['id']) }} --}}
                                 <input type="text" name="id_resepsi" value="{{ $data['resepid'] }}" hidden>
-                                <input type="text" name="avail" value="{{ $data['avail'] }}" hidden>
+                                <input type="text" name="avail" value="{{ $data['tersedia'] }}" hidden>
                                 <input type="number" name="id_kamar" value="{{ $data['id_kamar'] }}" hidden>
 
                                 <button class="btn btn-danger" onclick="return confirm('Apakah anda ingin checkout tamu = {{ $data['tamu'] }} ?')" name="cekout" type="submit">Cek-out</button>

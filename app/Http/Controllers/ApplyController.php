@@ -58,9 +58,9 @@ class ApplyController extends Controller
             $sum = $diff->format('%R%a');
             // dd($datas);
             $idku = $data['id'] + 1;
+            $summarizer = $data['harga'] * $data['avail'];
         }
 
-        $summarizer = $data['harga'] * $data['avail'];
         $rooms = $resepsi->nama;
         // $jumlah = $request->jumlah;
         // dd($idku);

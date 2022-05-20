@@ -111,6 +111,9 @@ class ResepsiController extends Controller
         $kampret = $request->id_resepsi;
 
         $room = $kamar::find($request->id_kamar);
+        // var_dump($room->avail);
+        // dd($request->avail);
+
         $total = $room->avail + $request->avail;
         $biongo = $room->update(['avail' => $total]);
 

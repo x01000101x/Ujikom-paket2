@@ -17,4 +17,4 @@
 # RewriteRule ^ server.php
 # </IfModule>
 
-#-------UNCOMMENT KALO MAU HOSTING----------#
+# -------UNCOMMENT KALO MAU HOSTING----------#
